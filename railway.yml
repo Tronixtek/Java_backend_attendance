@@ -1,0 +1,19 @@
+# Railway configuration for HF TCP Gateway
+version: 2
+
+services:
+  app:
+    build:
+      command: mvn clean compile
+    start:
+      command: mvn spring-boot:run -Dspring-boot.run.profiles=railway
+    ports:
+      - port: 8081
+        protocol: http
+      - port: 10010
+        protocol: tcp
+      - port: 10011
+        protocol: tcp
+    environment:
+      JAVA_VERSION: "21"
+      MAVEN_VERSION: "3.9.9"
