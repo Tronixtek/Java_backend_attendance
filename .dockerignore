@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+.gitattributes
+README.md
+
+# Documentation
+*.md
+docs/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Build outputs
+target/
+*.jar
+*.war
+*.ear
+*.class
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Other
+*.tmp
+*.temp
+*.swp
+*.swo
+*~

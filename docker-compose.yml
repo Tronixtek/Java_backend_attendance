@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  hf-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hf-tcp-gateway-demo
+    restart: unless-stopped
+    ports:
+      - "8081:8081"    # Web/REST API
+      - "10010:10010"  # Gateway TCP
+      - "10011:10011"  # SDK TCP
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SERVER_ADDRESS=0.0.0.0
+      - LOGGING_LEVEL_ROOT=INFO
+      - LOGGING_LEVEL_COM_HFIMS=DEBUG
+      - TZ=UTC
+    volumes:
+      - ./logs:/app/logs
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - hf-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '1.0'
+        reservations:
+          memory: 512M
+          cpus: '0.5'
+
+networks:
+  hf-network:
+    driver: bridge
+    name: hf-tcp-gateway-network
+
+volumes:
+  logs:
+    driver: local
