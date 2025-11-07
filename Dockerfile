@@ -4,6 +4,17 @@ FROM maven:3.9.9-eclipse-temurin-21-alpine AS build
 # Set working directory
 WORKDIR /app
 
+# Copy local JAR dependencies first
+COPY lib/ ./lib/
+
+# Install the local hf-tcp-gateway JAR to Maven local repository
+RUN mvn install:install-file \
+    -Dfile=./lib/hf-tcp-gateway-1.0.0.jar \
+    -DgroupId=com.hfims.boot \
+    -DartifactId=hf-tcp-gateway \
+    -Dversion=1.0.0 \
+    -Dpackaging=jar
+
 # Copy pom.xml and download dependencies (for better caching)
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
