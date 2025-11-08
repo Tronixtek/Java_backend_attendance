@@ -1,0 +1,41 @@
+# Heroku-specific configuration for HF TCP Gateway
+server:
+  address: 0.0.0.0
+  port: ${PORT:8081}
+  shutdown: graceful
+
+spring:
+  application:
+    name: hf-tcp-gateway-demo
+  profiles:
+    active: heroku
+
+# Management endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+
+# Logging for Heroku
+logging:
+  level:
+    root: INFO
+    com.hfims.xcan.gateway: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# HF Gateway configuration for Heroku
+hf:
+  gateway:
+    host: 0.0.0.0
+    port: ${GATEWAY_PORT:10010}
+    timeout: 10000
+  sdk:
+    host: 0.0.0.0  
+    port: ${SDK_PORT:10011}
+    timeout: 10000

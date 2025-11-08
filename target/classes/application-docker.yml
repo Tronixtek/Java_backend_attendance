@@ -1,0 +1,58 @@
+# Docker-specific configuration for HF TCP Gateway
+server:
+  address: 0.0.0.0
+  port: 8081
+  shutdown: graceful
+
+spring:
+  application:
+    name: hf-tcp-gateway-demo
+  profiles:
+    active: docker
+
+# Management endpoints for Docker health checks
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+  health:
+    diskspace:
+      enabled: true
+    ping:
+      enabled: true
+
+# Logging configuration for Docker
+logging:
+  level:
+    root: INFO
+    com.hfims.xcan.gateway: DEBUG
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+  file:
+    name: /app/logs/hf-gateway.log
+    max-size: 100MB
+    max-history: 10
+    total-size-cap: 1GB
+
+# HF Gateway specific configuration
+hf:
+  gateway:
+    host: 0.0.0.0
+    port: 10010
+    timeout: 10000
+  sdk:
+    host: 0.0.0.0
+    port: 10011
+    timeout: 10000
+
+# Docker environment optimizations
+spring.jmx.enabled: false
+spring.main.lazy-initialization: false

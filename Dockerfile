@@ -1,16 +1,13 @@
-# Single-stage Docker build for HF TCP Gateway using Maven Spring Boot Run
-FROM maven:3.9.9-eclipse-temurin-21-alpine
+# Multi-stage Docker build for production deployment
+# Stage 1: Build the application
+FROM maven:3.9.9-eclipse-temurin-21-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Install required packages for runtime
-RUN apk add --no-cache \
-    tzdata \
-    curl \
-    && rm -rf /var/cache/apk/*
+# Install required packages for build
+RUN apk add --no-cache curl
 
-# Copy local JAR dependencies first
+# Copy local JAR dependencies
 COPY lib/ ./lib/
 
 # Install the local hf-tcp-gateway JAR to Maven local repository
@@ -21,41 +18,54 @@ RUN mvn install:install-file \
     -Dversion=1.0.0 \
     -Dpackaging=jar
 
-# Copy pom.xml and download dependencies (for better caching)
+# Copy pom.xml and download dependencies
 COPY pom.xml .
 RUN mvn dependency:go-offline -B
 
-# Copy source code
+# Copy source code and build JAR
 COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Set metadata
-LABEL maintainer="HF TCP Gateway Demo"
-LABEL description="HF TCP Gateway Demo Application with Cloud Support"
-LABEL version="1.0.0"
+# Stage 2: Runtime container
+FROM eclipse-temurin:21-jre-alpine
+
+WORKDIR /app
+
+# Install runtime dependencies
+RUN apk add --no-cache \
+    tzdata \
+    curl \
+    && rm -rf /var/cache/apk/*
+
+# Create logs directory and app user
+RUN mkdir -p /app/logs && \
+    adduser -D -s /bin/sh appuser && \
+    chown -R appuser:appuser /app
+
+# Copy the JAR from builder stage
+COPY --from=builder /app/target/*.jar app.jar
+
+# Change to app user for security
+USER appuser
 
 # Set timezone
 ENV TZ=UTC
 
-# Create logs directory
-RUN mkdir -p /app/logs
-
 # Expose ports
-# 8081 - Web/REST API port
-# 10010 - Gateway TCP port  
-# 10011 - SDK TCP port
 EXPOSE 8081 10010 10011
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:8081/actuator/health || exit 1
 
-# JVM configuration for container environment
-ENV JAVA_OPTS="-Xms512m -Xmx1024m \
+# JVM configuration for production
+ENV JAVA_OPTS="-Xms256m -Xmx512m \
     -XX:+UseG1GC \
     -XX:+UseContainerSupport \
     -XX:MaxRAMPercentage=75.0 \
     -Djava.security.egd=file:/dev/./urandom \
-    -Dspring.profiles.active=docker"
+    -Dserver.port=8081 \
+    -Dspring.profiles.active=production"
 
-# Run the application using Maven Spring Boot
-CMD ["mvn", "spring-boot:run"]
+# Run the JAR file
+CMD ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

@@ -1,0 +1,36 @@
+2025-11-07 13:50:39.408 [main] INFO  com.hfims.xcan.gateway.tcp.demo.HfGatewayDemoMain - Starting HfGatewayDemoMain using Java 21.0.9 on VT with PID 12868 (C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\target\classes started by PC in C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo)
+2025-11-07 13:50:39.427 [main] DEBUG com.hfims.xcan.gateway.tcp.demo.HfGatewayDemoMain - Running with Spring Boot v2.7.18, Spring v5.3.31
+2025-11-07 13:50:39.430 [main] INFO  com.hfims.xcan.gateway.tcp.demo.HfGatewayDemoMain - No active profile set, falling back to 1 default profile: "default"
+2025-11-07 13:50:40.753 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2025-11-07 13:50:40.763 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2025-11-07 13:50:40.766 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-07 13:50:40.767 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-11-07 13:50:40.903 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-07 13:50:40.903 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1360 ms
+2025-11-07 13:50:41.296 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2025-11-07 13:50:41.310 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2025-11-07 13:50:41.317 [main] INFO  com.hfims.xcan.gateway.tcp.demo.HfGatewayDemoMain - Started HfGatewayDemoMain in 2.801 seconds (JVM running for 3.417)
+2025-11-07 13:52:44.315 [Thread-1] WARN  com.hfims.xcan.gateway.netty.server.SdkServer - sdk Shutdown Gracefully!
+2025-11-07 13:52:44.314 [Thread-0] WARN  com.hfims.xcan.gateway.netty.server.GwServer - gw Shutdown Gracefully!
+2025-11-07 13:52:44.347 [SDK-SERVER-BOSS-0] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x105d526f, L:/[0:0:0:0:0:0:0:0]:10011] INACTIVE
+2025-11-07 13:52:44.347 [GW-SERVER-BOSS-0] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xfde4693b, L:/[0:0:0:0:0:0:0:0]:10010] INACTIVE
+2025-11-07 13:52:44.348 [SDK-SERVER-BOSS-0] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x105d526f, L:/[0:0:0:0:0:0:0:0]:10011] UNREGISTERED
+2025-11-07 13:52:44.348 [GW-SERVER-BOSS-0] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xfde4693b, L:/[0:0:0:0:0:0:0:0]:10010] UNREGISTERED
+2025-11-07 16:18:08.158 [main] INFO  com.hfims.xcan.gateway.tcp.demo.HfGatewayDemoMain - Starting HfGatewayDemoMain using Java 21.0.9 on VT with PID 12896 (C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\target\classes started by PC in C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo)
+2025-11-07 16:18:08.160 [main] DEBUG com.hfims.xcan.gateway.tcp.demo.HfGatewayDemoMain - Running with Spring Boot v2.7.18, Spring v5.3.31
+2025-11-07 16:18:08.160 [main] INFO  com.hfims.xcan.gateway.tcp.demo.HfGatewayDemoMain - No active profile set, falling back to 1 default profile: "default"
+2025-11-07 16:18:09.287 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2025-11-07 16:18:09.300 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2025-11-07 16:18:09.305 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-11-07 16:18:09.305 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-11-07 16:18:09.455 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-11-07 16:18:09.456 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1239 ms
+2025-11-07 16:18:09.857 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2025-11-07 16:18:09.869 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2025-11-07 16:18:09.876 [main] INFO  com.hfims.xcan.gateway.tcp.demo.HfGatewayDemoMain - Started HfGatewayDemoMain in 2.473 seconds (JVM running for 5.526)
+2025-11-07 16:30:54.734 [Thread-0] WARN  com.hfims.xcan.gateway.netty.server.GwServer - gw Shutdown Gracefully!
+2025-11-07 16:30:54.732 [Thread-1] WARN  com.hfims.xcan.gateway.netty.server.SdkServer - sdk Shutdown Gracefully!
+2025-11-07 16:30:54.825 [GW-SERVER-BOSS-0] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xf0f9b94c, L:/[0:0:0:0:0:0:0:0]:10010] INACTIVE
+2025-11-07 16:30:54.825 [SDK-SERVER-BOSS-0] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x6aaa2563, L:/[0:0:0:0:0:0:0:0]:10011] INACTIVE
+2025-11-07 16:30:54.826 [GW-SERVER-BOSS-0] INFO  io.netty.handler.logging.LoggingHandler - [id: 0xf0f9b94c, L:/[0:0:0:0:0:0:0:0]:10010] UNREGISTERED
+2025-11-07 16:30:54.826 [SDK-SERVER-BOSS-0] INFO  io.netty.handler.logging.LoggingHandler - [id: 0x6aaa2563, L:/[0:0:0:0:0:0:0:0]:10011] UNREGISTERED

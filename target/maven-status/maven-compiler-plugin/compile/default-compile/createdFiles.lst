@@ -1,0 +1,10 @@
+com\hfims\xcan\gateway\tcp\demo\config\HfGatewayDemoConfig.class
+com\hfims\xcan\gateway\tcp\demo\config\WebConfig.class
+com\hfims\xcan\gateway\tcp\demo\web\TestController.class
+com\hfims\xcan\gateway\tcp\demo\web\BaseController.class
+com\hfims\xcan\gateway\tcp\demo\support\ResultWrapper.class
+com\hfims\xcan\gateway\tcp\demo\support\DataResult.class
+com\hfims\xcan\gateway\tcp\demo\web\TestController$DeviceRequest.class
+com\hfims\xcan\gateway\tcp\demo\support\IpUtils.class
+com\hfims\xcan\gateway\tcp\demo\support\BaseResult.class
+com\hfims\xcan\gateway\tcp\demo\HfGatewayDemoMain.class

@@ -1,0 +1,38 @@
+server:
+  port: 8081
+  address: 0.0.0.0  # Accept connections from any IP (cloud requirement)
+  servlet:
+    encoding:
+      force-response: true
+  tomcat:
+    max-http-form-post-size: -1
+
+spring:
+  application:
+    name: hf-tcp-gateway-demo
+  
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    '[com.hfims]': INFO
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# Cloud deployment configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+# Custom properties for cloud deployment
+app:
+  gateway:
+    host: 0.0.0.0
+    port: 10010
+    sdk-port: 10011
+    cloud-mode: true
