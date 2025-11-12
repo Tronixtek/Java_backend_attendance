@@ -447,16 +447,20 @@ public class AttendanceController extends BaseController {
                 System.out.println("DEBUG - Available keys in record: " + recordMap.keySet());
                 System.out.println("DEBUG - Full record data: " + recordMap);
                 
-                // Extract common fields (field names may vary)
+                // Extract common fields with correct XO5 field names
                 attendanceRecord.put("recordId", getFieldValue(recordMap, "id", "recordId", "index", "Id"));
                 attendanceRecord.put("employeeId", getFieldValue(recordMap, "sn", "personSn", "employeeId", "Sn", "PersonSn"));
                 attendanceRecord.put("employeeName", getFieldValue(recordMap, "name", "personName", "userName", "Name", "PersonName"));
-                attendanceRecord.put("timestamp", getFieldValue(recordMap, "time", "recordTime", "dateTime", "Time", "RecordTime", "DateTime"));
-                attendanceRecord.put("eventType", getFieldValue(recordMap, "type", "eventType", "recordType", "Type", "EventType", "RecordType"));
-                attendanceRecord.put("verifyMode", getFieldValue(recordMap, "verifyMode", "mode", "authMode", "VerifyMode", "Mode", "AuthMode"));
+                // Fix: Use actual XO5 field names
+                attendanceRecord.put("timestamp", getFieldValue(recordMap, "createTime", "time", "recordTime", "dateTime", "Time", "RecordTime", "DateTime"));
+                attendanceRecord.put("eventType", getFieldValue(recordMap, "resultFlag", "type", "eventType", "recordType", "Type", "EventType", "RecordType"));
+                attendanceRecord.put("verifyMode", getFieldValue(recordMap, "fingerFlag", "faceFlag", "verifyMode", "mode", "authMode", "VerifyMode", "Mode", "AuthMode"));
                 attendanceRecord.put("deviceKey", getFieldValue(recordMap, "deviceKey", "device", "DeviceKey", "Device"));
                 attendanceRecord.put("temperature", getFieldValue(recordMap, "temperature", "temp", "Temperature", "Temp"));
-                attendanceRecord.put("photo", getFieldValue(recordMap, "photo", "image", "Photo", "Image"));
+                attendanceRecord.put("photo", getFieldValue(recordMap, "checkImgUrl", "photo", "image", "Photo", "Image"));
+                attendanceRecord.put("direction", getFieldValue(recordMap, "direction", "Direction"));
+                attendanceRecord.put("strangerFlag", getFieldValue(recordMap, "strangerFlag", "StrangerFlag"));
+                attendanceRecord.put("personType", getFieldValue(recordMap, "personType", "PersonType"));
                 
                 // Debug output for field extraction
                 System.out.println("DEBUG - Extracted timestamp: " + attendanceRecord.get("timestamp"));
@@ -501,17 +505,26 @@ public class AttendanceController extends BaseController {
     private String formatTimestamp(Object timestamp) {
         try {
             if (timestamp instanceof Number) {
-                // Convert timestamp to readable format
+                // XO5 device sends timestamp in milliseconds since epoch
                 long ts = ((Number) timestamp).longValue();
-                // Handle different timestamp formats (seconds vs milliseconds)
-                if (ts < 10000000000L) {
-                    ts = ts * 1000; // Convert seconds to milliseconds
+                
+                // Handle XO5 timestamp format (already in milliseconds)
+                if (ts > 1000000000000L) { // If timestamp is in milliseconds
+                    return LocalDateTime.ofInstant(
+                        java.time.Instant.ofEpochMilli(ts), 
+                        java.time.ZoneId.systemDefault()
+                    ).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                } else { // If timestamp is in seconds, convert to milliseconds
+                    ts = ts * 1000;
+                    return LocalDateTime.ofInstant(
+                        java.time.Instant.ofEpochMilli(ts), 
+                        java.time.ZoneId.systemDefault()
+                    ).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
                 }
-                return LocalDateTime.ofEpochSecond(ts / 1000, 0, java.time.ZoneOffset.UTC)
-                    .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             }
             return timestamp.toString();
         } catch (Exception e) {
+            System.err.println("Error formatting timestamp: " + e.getMessage());
             return timestamp.toString();
         }
     }
