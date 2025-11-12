@@ -9,11 +9,16 @@ import com.hfims.xcan.gateway.tcp.demo.config.HfGatewayDemoConfig;
 
 public abstract class BaseController {
 
-    final HostInfoDto hostInfo = new HostInfoDto(IpUtils.getIPAddress(true), HfGatewayDemoConfig.SDK_PORT, HfGatewayDemoConfig.TIMEOUT);
+    // Use environment variable for device IP, fallback to local development IP
+    private static final String DEVICE_IP = System.getenv("DEVICE_IP") != null ? 
+        System.getenv("DEVICE_IP") : "192.168.0.169";
+    
+    final HostInfoDto hostInfo = new HostInfoDto(DEVICE_IP, HfGatewayDemoConfig.SDK_PORT, HfGatewayDemoConfig.TIMEOUT);
 
     // Constructor to log host info for debugging
     public BaseController() {
-        System.out.println("DEBUG - Gateway Host Info: " + IpUtils.getIPAddress(true) + ":" + HfGatewayDemoConfig.SDK_PORT + " (timeout: " + HfGatewayDemoConfig.TIMEOUT + "ms)");
+        System.out.println("DEBUG - Gateway Host Info: " + DEVICE_IP + ":" + HfGatewayDemoConfig.SDK_PORT + " (timeout: " + HfGatewayDemoConfig.TIMEOUT + "ms)");
+        System.out.println("DEBUG - Environment: DEVICE_IP=" + System.getenv("DEVICE_IP") + " (using: " + DEVICE_IP + ")");
     }
 
     protected void validateCommon(String deviceKey, String secret)

@@ -1,0 +1,40 @@
+# Maven build output
+target/
+!target/.gitkeep
+
+# Log files
+logs/*.log
+logs/*.log.*
+*.log
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.eclipse/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.production.local
+
+# Temporary files
+*.tmp
+*.temp
+
+# Maven wrapper (keep these)
+!mvnw
+!mvnw.cmd
+!.mvn/
+
+# Spring Boot
+*.jar
+*.war
+
+# Test output
+junit.xml
+test-results/

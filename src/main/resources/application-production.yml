@@ -1,0 +1,49 @@
+# Production configuration for Digital Ocean deployment
+server:
+  address: 0.0.0.0
+  port: ${PORT:8081}
+  shutdown: graceful
+
+spring:
+  application:
+    name: hf-tcp-gateway-demo
+  profiles:
+    active: production
+
+# Device Configuration - Use environment variables
+device:
+  ip: ${DEVICE_IP:192.168.0.169}
+  port: ${DEVICE_PORT:10011}
+  timeout: ${DEVICE_TIMEOUT:10000}
+  username: ${DEVICE_USERNAME:020e7096a03c670f63}
+  password: ${DEVICE_PASSWORD:123456}
+
+# MERN Backend Configuration - Use environment variables
+mern:
+  backend:
+    url: ${MERN_BACKEND_URL:http://localhost:3001}
+    timeout: ${MERN_BACKEND_TIMEOUT:10000}
+    retry:
+      max-attempts: ${MERN_RETRY_ATTEMPTS:3}
+      delay: ${MERN_RETRY_DELAY:1000}
+
+# Management endpoints for production monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+
+# Logging configuration for production
+logging:
+  level:
+    root: INFO
+    com.hfims.xcan.gateway: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
