@@ -9,9 +9,9 @@ import com.hfims.xcan.gateway.tcp.demo.config.HfGatewayDemoConfig;
 
 public abstract class BaseController {
 
-    // Use environment variable for device IP, fallback to local development IP
+    // Use environment variable for device IP, fallback to Digital Ocean server IP
     private static final String DEVICE_IP = System.getenv("DEVICE_IP") != null ? 
-        System.getenv("DEVICE_IP") : "192.168.0.169";
+        System.getenv("DEVICE_IP") : "143.198.150.26";
     
     final HostInfoDto hostInfo = new HostInfoDto(DEVICE_IP, HfGatewayDemoConfig.SDK_PORT, HfGatewayDemoConfig.TIMEOUT);
 

@@ -12,10 +12,10 @@ spring:
 
 # Device Configuration - Use environment variables
 device:
-  ip: ${DEVICE_IP:192.168.0.169}
+  ip: ${DEVICE_IP:143.198.150.26}
   port: ${DEVICE_PORT:10011}
   timeout: ${DEVICE_TIMEOUT:10000}
-  username: ${DEVICE_USERNAME:020e7096a03c670f63}
+  username: ${DEVICE_USERNAME:admin}
   password: ${DEVICE_PASSWORD:123456}
 
 # MERN Backend Configuration - Use environment variables

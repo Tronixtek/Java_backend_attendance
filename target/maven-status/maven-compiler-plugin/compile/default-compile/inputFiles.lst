@@ -1,9 +1,19 @@
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\config\WebConfig.java
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\support\DataResult.java
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\config\HfGatewayDemoConfig.java
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\support\IpUtils.java
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\HfGatewayDemoMain.java
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\web\BaseController.java
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\support\ResultWrapper.java
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\web\TestController.java
-C:\Users\PC\Downloads\HeyStar API\clould sdk and Getway API\cloud SDK\hf-tcp-gateway-demo\src\main\java\com\hfims\xcan\gateway\tcp\demo\support\BaseResult.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\service\DeviceMethodInspector.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\web\AttendanceController.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\dto\EmployeeRemoveRequest.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\support\IpUtils.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\web\EmployeeController.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\dto\EmployeeSyncRequest.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\service\RequestBuilderService.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\dto\ApiResponse.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\service\SimplifiedMernIntegrationService.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\web\TestController.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\config\WebConfig.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\HfGatewayDemoMain.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\config\HfGatewayDemoConfig.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\support\DataResult.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\web\BaseController.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\web\DeviceManagementController.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\support\BaseResult.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\support\ResultWrapper.java
+C:\Users\PC\Desktop\attendance tracking system - Copy\java-attendance-service\src\main\java\com\hfims\xcan\gateway\tcp\demo\service\MernIntegrationService.java
