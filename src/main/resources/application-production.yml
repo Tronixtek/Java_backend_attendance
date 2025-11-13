@@ -7,8 +7,7 @@ server:
 spring:
   application:
     name: hf-tcp-gateway-demo
-  profiles:
-    active: production
+  # profiles.active removed to avoid Spring Boot error
 
 # Device Configuration - Use environment variables
 device:
